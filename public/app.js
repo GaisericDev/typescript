@@ -1,21 +1,28 @@
-"use strict";
-//classes
-class Invoice {
-    constructor(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
+const me = {
+    name: "Hank",
+    age: 28,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log(`I spent ${amount}`);
+        return amount;
     }
-    format() {
-        return `${this.client} owes $${this.amount} for ${this.details}`;
-    }
-}
+};
+let someone;
+const greetPerson = (person) => {
+    console.log(`Hello ${person.name}`);
+};
+greetPerson(me);
+import { Invoice } from "./classes/Invoice.js";
 const inv1 = new Invoice("mario", "Work on the mario website", 250);
 const inv2 = new Invoice("luigi", "Work on the luigi website", 300);
 let invoices = [];
 invoices.push(inv1);
 invoices.push(inv2);
-console.log(invoices);
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format());
+});
 //inputs
 const form = document.querySelector(".new-item-form");
 const type = document.querySelector("#type");
